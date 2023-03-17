@@ -9,7 +9,7 @@ This React Native Expo app displays a list of free-to-play games sourced from an
 *  [💻 Running locally](#-running-locally)
 *  [🪄 Running extra solution](#-running-extra-solution)
 *  [📦 Core packages](#-core-packages)
-*  [🛠️ Code linters](#-code-linters)
+*  [🛠️ Code linters](#%EF%B8%8F-code-linters)
 
 
 
@@ -56,9 +56,11 @@ Extra solution has been added to this repository in a file named `extra-problem-
 
 ## 📦 Core packages
 
-- @react-navigation v6
-- react-native-reanimated
-- @shopify/flash-list
+- react (18.2.0)
+- react-native (0.71.3)
+- @react-navigation/native (6.1.6)
+- react-native-reanimated (2.14.4)
+- @shopify/flash-list (1.4.0)
 
 ## 🛠️ Code linters
 
@@ -68,4 +70,5 @@ Extra solution has been added to this repository in a file named `extra-problem-
         - [Airbnb typescript eslint](https://www.npmjs.com/package/eslint-config-airbnb-typescript)
         - [Eslint plugin react hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)
         - [Eslint plugin react native](https://github.com/intellicode/eslint-plugin-react-native)
+        
         and more... 💫
