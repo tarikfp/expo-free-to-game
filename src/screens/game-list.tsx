@@ -52,9 +52,13 @@ const GameListScreen: React.FC<Props> = ({ navigation }) => {
   const [isFilterRendererModalVisible, setIsFilterRendererModalVisible] =
     React.useState<boolean>(false);
 
+  const computedHeaderTitle = `Free to game (${
+    games?.length ?? 0
+  } games found)`;
+
   React.useLayoutEffect(() => {
     navigation.setOptions({
-      headerTitle: `Free to game\n(${games?.length} games found)`,
+      headerTitle: computedHeaderTitle,
       headerRight: () => (
         <Pressable
           onPress={() => setIsFilterRendererModalVisible(true)}
@@ -79,7 +83,7 @@ const GameListScreen: React.FC<Props> = ({ navigation }) => {
         </Pressable>
       ),
     });
-  }, [navigation, games?.length, filters]);
+  }, [computedHeaderTitle, filters, navigation]);
 
   React.useEffect(() => {
     // clean up timeout on unmount
@@ -106,7 +110,7 @@ const GameListScreen: React.FC<Props> = ({ navigation }) => {
       },
     }: ListRenderItemInfo<Game>) => {
       return (
-        <Animated.View entering={FadeIn.delay(index * 150)}>
+        <Animated.View entering={FadeIn.delay(index * 100)}>
           <GameListItem
             genre={genre}
             publisher={publisher}
@@ -154,9 +158,7 @@ const GameListScreen: React.FC<Props> = ({ navigation }) => {
             <ActivityIndicator color="indigo" size="large" />
           </View>
         ) : (
-          <View
-            style={{ width: getWindowWidth(100), height: getWindowHeight(90) }}
-          >
+          <View style={styles.flashListContainer}>
             <FlashList
               data={games}
               estimatedItemSize={GAME_LIST_ITEM_HEIGHT}
@@ -206,6 +208,10 @@ const styles = StyleSheet.create({
     width: "90%",
     textAlign: "center",
     fontSize: 16,
+  },
+  flashListContainer: {
+    width: getWindowWidth(100),
+    height: getWindowHeight(90),
   },
   filterCountBadgeContainer: {
     position: "absolute",
