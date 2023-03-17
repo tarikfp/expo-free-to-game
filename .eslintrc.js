@@ -124,6 +124,7 @@ module.exports = {
     "ReactotronConfig.ts",
     "commitlint.config.js",
     "jest.config.js",
+    "extra-problem-solution.js",
     "metro.config.js",
   ],
 };
